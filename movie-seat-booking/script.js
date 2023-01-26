@@ -4,7 +4,7 @@ const count = document.getElementById("count");
 const total = document.getElementById("total");
 const movieSelect = document.getElementById("movie");
 
-const ticketPrice = +movieSelect.value; //앞에 + 넣어주면 type이 숫자로 변함!
+let ticketPrice = +movieSelect.value; //앞에 + 넣어주면 type이 숫자로 변함!
 
 //Update total and count
 function updateSelectedCount() {
@@ -13,6 +13,12 @@ function updateSelectedCount() {
   count.innerText = selectedSeatsCount;
   total.innerText = selectedSeatsCount * ticketPrice;
 }
+
+//Movie select event
+movieSelect.addEventListener("change", (e) => {
+  ticketPrice = +e.target.value;
+  updateSelectedCount();
+});
 
 //Seat click event
 container.addEventListener("click", (e) => {
