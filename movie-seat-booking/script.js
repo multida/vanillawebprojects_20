@@ -9,6 +9,13 @@ let ticketPrice = +movieSelect.value; //앞에 + 넣어주면 type이 숫자로 
 //Update total and count
 function updateSelectedCount() {
   const selectedSeats = document.querySelectorAll(".row .seat.selected");
+
+  //Copy selected seats into arr
+  //Map through array
+  //return a new array indexes
+  const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
+  console.log(seatsIndex);
+
   const selectedSeatsCount = selectedSeats.length;
   count.innerText = selectedSeatsCount;
   total.innerText = selectedSeatsCount * ticketPrice;
