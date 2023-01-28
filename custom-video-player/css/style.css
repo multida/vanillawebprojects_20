@@ -27,6 +27,8 @@ h1 {
   border-top-right-radius: 10px;
 }
 
+.screen[poster] {}
+
 .controls {
   background: #333;
   color: #fff;
