@@ -5,7 +5,7 @@
 - [x] 1. form validator
 - [x] 2. movie seat booking
 - [x] 3. Custom Video Player
-- [ ] 4. Exchange Rate Calculator
+- [x] 4. Exchange Rate Calculator
 - [ ] 5. DOM Array Methods Project
 - [ ] 6. Menu Slider & Modal
 - [ ] 7. Hangman Game
