@@ -1,17 +1,25 @@
 const video = document.getElementById("video");
-const playBtn = document.getElementById("play");
-const stopBtn = document.getElementById("stop");
+const play = document.getElementById("play");
+const stop = document.getElementById("stop");
 const progress = document.getElementById("progress");
 const timestamp = document.getElementById("timestamp");
 
 //Play & pause video
 function toggleVideoStatus() {
-  return true;
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
 }
 
 //Update play/pause icon
 function updatePlayIcon() {
-  return true;
+  if (video.paused) {
+    play.innerHTML = '<i class="fa fa-play fa-2x"></i>';
+  } else {
+    play.innerHTML = '<i class="fa fa-pause fa-2x"></i>';
+  }
 }
 
 //Update progress & timestamp
@@ -26,7 +34,9 @@ function setVideoProgress() {
 
 //Stop video
 function stopVideo() {
-  return true;
+  //video.stop();
+  video.currentTime = 0; //현재 시간을 0으로 설정하고 일시정지하면 처음으로 다시 보낸다.
+  video.pause();
 }
 
 //Event listeners
@@ -35,8 +45,8 @@ video.addEventListener("pause", updatePlayIcon);
 video.addEventListener("play", updatePlayIcon);
 video.addEventListener("timeupdate", updateProgress);
 
-playBtn.addEventListener("click", toggleVideoStatus);
+play.addEventListener("click", toggleVideoStatus);
 
-stopBtn.addEventListener("click", stopVideo);
+stop.addEventListener("click", stopVideo);
 
 progress.addEventListener("change", setVideoProgress);
