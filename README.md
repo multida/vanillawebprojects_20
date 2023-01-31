@@ -6,7 +6,7 @@
 - [x] 2. movie seat booking
 - [x] 3. Custom Video Player
 - [x] 4. Exchange Rate Calculator
-- [ ] 5. DOM Array Methods Project
+- [x] 5. DOM Array Methods Project
 - [ ] 6. Menu Slider & Modal
 - [ ] 7. Hangman Game
 - [ ] 8. Mealfinder App
