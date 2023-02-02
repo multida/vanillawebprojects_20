@@ -7,7 +7,7 @@
 - [x] 3. Custom Video Player
 - [x] 4. Exchange Rate Calculator
 - [x] 5. DOM Array Methods Project
-- [ ] 6. Menu Slider & Modal
+- [x] 6. Menu Slider & Modal
 - [ ] 7. Hangman Game
 - [ ] 8. Mealfinder App
 - [ ] 9. Expense Tracker
