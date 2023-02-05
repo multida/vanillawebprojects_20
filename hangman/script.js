@@ -1,6 +1,6 @@
 const wordEl = document.getElementById("word");
-const wrongLetterEl = document.getElementById("wrong-letter");
-const playAgainBtn = document.getElementById("play-again");
+const wrongLettersEl = document.getElementById("wrong-letters");
+const playAgainBtn = document.getElementById("play-button");
 const popup = document.getElementById("popup-container");
 const notification = document.getElementById("notification-container");
 const finalMessage = document.getElementById("final-message");
@@ -37,7 +37,6 @@ function displayWord() {
   }`;
 
   const innerWord = wordEl.innerText.replace(/\n/g, ""); //떨어져 나오던 문자들을 한줄에 나오도록 정규식으로 바꿔준다.
-  console.log(wordEl.innerText, innerWord); //wordEl.innerText: 단어의 문자들이 떨어져서 나옴
 
   if (innerWord === selectedWord) {
     finalMessage.innerText = "Congratulations! You won! 🥳";
@@ -47,7 +46,28 @@ function displayWord() {
 
 //Update the wrong letters
 function updateWrongLettersEl() {
-  console.log("Update wrong");
+  //Display wrong letters
+  wrongLettersEl.innerHTML = `
+    ${wrongLetters.length > 0 ? "<p>Worng</p>" : ""}
+    ${wrongLetters.map((letter) => `<span>${letter}</span>`)}
+  `;
+
+  //Display parts
+  figureParts.forEach((part, index) => {
+    const errors = wrongLetters.length;
+
+    if (index < errors) {
+      part.style.display = "block";
+    } else {
+      part.style.display = "none";
+    }
+  });
+
+  //Check if lost
+  if (wrongLetters.length === figureParts.length) {
+    finalMessage.innerText = "Unfortunately you lost. 😣";
+    popup.style.display = "flex";
+  }
 }
 
 //Show notification
@@ -64,23 +84,38 @@ window.addEventListener("keydown", (e) => {
   //console.log(e.keyCode);
   if (e.keyCode >= 65 && e.keyCode <= 90) {
     const letter = e.key;
-    if (selectedWord.includes(letter))
+    if (selectedWord.includes(letter)) {
       if (!correctLetters.includes(letter)) {
         correctLetters.push(letter);
-
         displayWord();
       } else {
         showNotification();
       }
-  } else {
-    if (!wrongLetters.includes(letter)) {
-      wrongLetters.push(letter);
-
-      updateWrongLettersEl();
     } else {
-      showNotification();
+      if (!wrongLetters.includes(letter)) {
+        wrongLetters.push(letter);
+
+        updateWrongLettersEl();
+      } else {
+        showNotification();
+      }
     }
   }
+});
+
+//Restart game and plau again
+playAgainBtn.addEventListener("click", () => {
+  //Empty arrats
+  correctLetters.splice(0);
+  wrongLetters.splice(0);
+
+  selectedWord = words[Math.floor(Math.random() * words.length)];
+
+  displayWord();
+
+  updateWrongLettersEl();
+
+  popup.style.display = "none";
 });
 
 displayWord();
