@@ -50,3 +50,9 @@ async function searchMeal(e) {
 
 //Event listeners
 submit.addEventListener("click", searchMeal);
+
+mealsEl.addEventListener("click", (e) => {
+  const mealInfo = e.path.find((item) => {
+    console.log(item);
+  });
+});
