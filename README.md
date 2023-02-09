@@ -12,7 +12,7 @@
 - [ ] 8. Mealfinder App
 - [ ] 9. Expense Tracker
 - [ ] 10. Music Player
-- [ ] 11. Infinite Scrolling
+- [x] 11. Infinite Scrolling
 - [ ] 12. Typing Game
 - [ ] 13. Speech Text Reader
 - [ ] 14. Memory Cards
