@@ -19,6 +19,6 @@
 - [ ] 15. LyricsSearch App
 - [ ] 16. Relaxer App
 - [ ] 17. Breakout Game
-- [ ] 18. New Year Countdown
+- [x] 18. New Year Countdown
 - [ ] 19. Sortable List
 - [ ] 20. Speak Number Guessing Game
